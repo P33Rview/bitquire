@@ -1,4 +1,5 @@
 import os
+from dotenv import load_dotenv
 
 import pandas as pd
 import numpy as np
@@ -8,13 +9,13 @@ import seaborn as sns
 import requests
 import json
 
-
+load_dotenv()
 BASE_URL = "https://pro-api.coinmarketcap.com"
 
 
 def get_session(api_key=None):
     """Build a requests session with the CoinMarketCap auth headers."""
-    api_key = api_key or os.environ.get("CMC_API_KEY")
+    api_key = api_key or os.getenv("CMC_API_KEY")
     if not api_key:
         raise RuntimeError(
             "No API key. Set the CMC_API_KEY environment variable or pass api_key=..."

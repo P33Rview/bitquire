@@ -3,6 +3,7 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/..">
       <excludeFolder url="file://$MODULE_DIR$/../.venv" />
+      <excludeFolder url="file://$MODULE_DIR$/../WelcomeScreen/.venv" />
     </content>
     <orderEntry type="jdk" jdkName="~\PycharmProjects\bitquire\.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
