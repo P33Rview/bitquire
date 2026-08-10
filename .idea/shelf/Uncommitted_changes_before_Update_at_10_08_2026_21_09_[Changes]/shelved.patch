@@ -1,0 +1,18 @@
+Index: bitquire.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/bitquire.py b/bitquire.py
+new file mode 100644
+--- /dev/null	(date 1786388703164)
++++ b/bitquire.py	(date 1786388703164)
+@@ -0,0 +1,7 @@
++### bitquire
++### vers 0.0
++
++import pandas as pd
++import numpy as np
++
++print("Bitcoin is great!")
+\ No newline at end of file
