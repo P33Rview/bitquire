@@ -62,7 +62,8 @@ def get_quotes(symbols, convert="USD", api_key=None, session=None):
         symbols = [symbols]
 
     data = request(
-        "/v1/cryptocurrency/quotes/latest",
+        #"/v1/cryptocurrency/quotes/latest",
+        "/v1/cryptocurrency/listings/historical?date",
         params={"symbol": ",".join(symbols), "convert": convert},
         api_key=api_key,
         session=session,
@@ -76,7 +77,6 @@ def to_frame(coins, convert="USD"):
     for coin in coins:
         quote = coin["quote"][convert]
         rows.append({
-            "id": coin["id"],
             "symbol": coin["symbol"],
             "name": coin["name"],
             "rank": coin.get("cmc_rank"),
@@ -93,5 +93,7 @@ def to_frame(coins, convert="USD"):
 
 
 if __name__ == "__main__":
-    df = get_listings(limit=10)
-    print(df[["rank", "symbol", "name", "price", "pct_change_24h", "market_cap"]])
+    df = get_listings(limit=1)
+    print(df[["symbol", "price", "pct_change_1h",
+              "pct_change_24h", "pct_change_7d", "volume_24h",
+              "last_updated"]])
