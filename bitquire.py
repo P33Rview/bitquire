@@ -36,39 +36,15 @@ def request(endpoint, params=None, api_key=None, session=None):
 
     payload = response.json()
     status = payload.get("status", {})
-    if status.get("error_code"):
+    # v1 sends error_code as an int, v3 as a string — normalise before testing.
+    error_code = str(status.get("error_code") or 0)
+    if error_code != "0":
         raise RuntimeError(
-            f"CoinMarketCap error {status['error_code']}: {status.get('error_message')}"
+            f"CoinMarketCap error {error_code}: {status.get('error_message')}"
         )
     response.raise_for_status()
 
     return payload["data"]
-
-
-def get_listings(limit=100, convert="USD", api_key=None, session=None):
-    """Latest market data for the top `limit` coins by market cap."""
-    data = request(
-        "/v1/cryptocurrency/listings/latest",
-        params={"start": 1, "limit": limit, "convert": convert},
-        api_key=api_key,
-        session=session,
-    )
-    return to_frame(data, convert)
-
-
-def get_quotes(symbols, convert="USD", api_key=None, session=None):
-    """Latest quotes for specific symbols, e.g. ["BTC", "ETH"]."""
-    if isinstance(symbols, str):
-        symbols = [symbols]
-
-    data = request(
-        #"/v1/cryptocurrency/quotes/latest",
-        "/v1/cryptocurrency/listings/historical?date",
-        params={"symbol": ",".join(symbols), "convert": convert},
-        api_key=api_key,
-        session=session,
-    )
-    return to_frame(list(data.values()), convert)
 
 
 def to_frame(coins, convert="USD"):
@@ -92,8 +68,28 @@ def to_frame(coins, convert="USD"):
     return pd.DataFrame(rows)
 
 
+def get_listings(limit=100, convert="USD", api_key=None, session=None):
+    """Latest market data for the top `limit` coins by market cap."""
+    data = request(
+        "/v1/cryptocurrency/listings/latest",
+        params={"start": 1, "limit": limit, "convert": convert},
+        api_key=api_key,
+        session=session,
+    )
+    return to_frame(data, convert)
+
+def fear_greed_index(api_key=None, session=None):
+    """Last fear and greed index value"""
+    data = request(
+        "/v3/fear-and-greed/latest",
+        api_key=api_key,
+        session=session,
+    )
+    return data["value"]
+
 if __name__ == "__main__":
-    df = get_listings(limit=1)
+    df = get_listings(1)
+    df["fear_greed_index"] = fear_greed_index()
     print(df[["symbol", "price", "pct_change_1h",
               "pct_change_24h", "pct_change_7d", "volume_24h",
-              "last_updated"]])
+              "last_updated", "fear_greed_index"]])

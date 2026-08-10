@@ -41,23 +41,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.000000000000015" />
-      <entry key="S30" value="1.0000493133575226" />
-      <entry key="S60" value="1.0123408373090914" />
-      <entry key="M2" value="1.2266152113863122" />
-      <entry key="M5" value="3.947215807119243" />
-      <entry key="M10" value="16.292987951466557" />
-      <entry key="M15" value="32.46847829259379" />
-      <entry key="M30" value="74.4180223035703" />
-      <entry key="H1" value="120.18844862780252" />
-      <entry key="H2" value="155.57805492801742" />
-      <entry key="H4" value="177.86117855967274" />
-      <entry key="D1" value="199.34552303862836" />
-      <entry key="W1" value="203.32734386496165" />
+      <entry key="MS100" value="1.0000000002530252" />
+      <entry key="MS500" value="1.0123378432688024" />
+      <entry key="S2" value="1.4626028371914526" />
+      <entry key="S5" value="2.0867716419799613" />
+      <entry key="S10" value="2.4680930180212517" />
+      <entry key="S30" value="2.8818094114198685" />
+      <entry key="S60" value="3.870898611276214" />
+      <entry key="M2" value="7.934744944848982" />
+      <entry key="M5" value="19.17279715208375" />
+      <entry key="M10" value="29.311429835076822" />
+      <entry key="M15" value="38.070288052958446" />
+      <entry key="M30" value="68.796049151818" />
+      <entry key="H1" value="118.48967636515097" />
+      <entry key="H2" value="167.5027762631979" />
+      <entry key="H4" value="202.70237965629508" />
+      <entry key="D1" value="239.6270620520695" />
+      <entry key="W1" value="246.78187983660163" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -79,23 +79,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.005879870107074481" />
-      <entry key="MS500" value="0.3579921853002859" />
-      <entry key="S2" value="0.7735143706585917" />
-      <entry key="S5" value="0.9023756229672744" />
-      <entry key="S10" value="0.9499345361483089" />
-      <entry key="S30" value="0.9830742822052048" />
-      <entry key="S60" value="1.0038097302828324" />
-      <entry key="M2" value="1.2220643617000397" />
-      <entry key="M5" value="3.9429488979677294" />
-      <entry key="M10" value="16.287835074293" />
-      <entry key="M15" value="32.463313807084916" />
-      <entry key="M30" value="74.41367321509074" />
-      <entry key="H1" value="120.18541587476177" />
-      <entry key="H2" value="155.5762185551123" />
-      <entry key="H4" value="177.86016083107017" />
-      <entry key="D1" value="199.34533750677022" />
-      <entry key="W1" value="203.32731694010423" />
+      <entry key="MS100" value="0.9012504628265682" />
+      <entry key="MS500" value="0.9913749819058042" />
+      <entry key="S2" value="1.4541972816588773" />
+      <entry key="S5" value="2.0818487002295747" />
+      <entry key="S10" value="2.465175080842198" />
+      <entry key="S30" value="2.8791960268594536" />
+      <entry key="S60" value="3.862916038275364" />
+      <entry key="M2" value="7.921833248141945" />
+      <entry key="M5" value="19.160723290540293" />
+      <entry key="M10" value="29.302421152371295" />
+      <entry key="M15" value="38.062785185479775" />
+      <entry key="M30" value="68.790403012136" />
+      <entry key="H1" value="118.48564554862632" />
+      <entry key="H2" value="167.50022274683735" />
+      <entry key="H4" value="202.70091782774165" />
+      <entry key="D1" value="239.62678681368868" />
+      <entry key="W1" value="246.78183965198053" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
@@ -174,7 +174,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1786388527065</updated>
-      <workItem from="1786388528093" duration="4619000" />
+      <workItem from="1786388528093" duration="6812000" />
     </task>
     <servers />
   </component>
@@ -182,6 +182,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bitquire$bitquire.coverage" NAME="bitquire Coverage Results" MODIFIED="1786393116980" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bitquire$bitquire.coverage" NAME="bitquire Coverage Results" MODIFIED="1786395226592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
