@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from scraping_200_wma import supabase_data_import, return_supabase_wma
 
 import pandas as pd
 import numpy as np
@@ -7,7 +8,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 import requests
-import json
 
 load_dotenv()
 BASE_URL = "https://pro-api.coinmarketcap.com"
@@ -78,6 +78,7 @@ def get_listings(limit=100, convert="USD", api_key=None, session=None):
     )
     return to_frame(data, convert)
 
+
 def fear_greed_index(api_key=None, session=None):
     """Last fear and greed index value"""
     data = request(
@@ -90,6 +91,7 @@ def fear_greed_index(api_key=None, session=None):
 if __name__ == "__main__":
     df = get_listings(1)
     df["fear_greed_index"] = fear_greed_index()
+    df["200WMA"] = return_supabase_wma()["200WMA"].reset_index(drop=True)
     print(df[["symbol", "price", "pct_change_1h",
-              "pct_change_24h", "pct_change_7d", "volume_24h",
-              "last_updated", "fear_greed_index"]])
+              "pct_change_24h", "pct_change_7d",
+              "last_updated", "fear_greed_index", "200WMA"]])

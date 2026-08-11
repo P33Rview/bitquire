@@ -17,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="Jupyter Notebook" />
       </list>
     </option>
   </component>
@@ -41,61 +42,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0000000002530252" />
-      <entry key="MS500" value="1.0123378432688024" />
-      <entry key="S2" value="1.4626028371914526" />
-      <entry key="S5" value="2.0867716419799613" />
-      <entry key="S10" value="2.4680930180212517" />
-      <entry key="S30" value="2.8818094114198685" />
-      <entry key="S60" value="3.870898611276214" />
-      <entry key="M2" value="7.934744944848982" />
-      <entry key="M5" value="19.17279715208375" />
-      <entry key="M10" value="29.311429835076822" />
-      <entry key="M15" value="38.070288052958446" />
-      <entry key="M30" value="68.796049151818" />
-      <entry key="H1" value="118.48967636515097" />
-      <entry key="H2" value="167.5027762631979" />
-      <entry key="H4" value="202.70237965629508" />
-      <entry key="D1" value="239.6270620520695" />
-      <entry key="W1" value="246.78187983660163" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0" />
+      <entry key="S5" value="1.0" />
+      <entry key="S10" value="1.0" />
+      <entry key="S30" value="1.0" />
+      <entry key="S60" value="1.0" />
+      <entry key="M2" value="1.0" />
+      <entry key="M5" value="1.0000002433474164" />
+      <entry key="M10" value="1.002580860886322" />
+      <entry key="M15" value="1.0688386093346012" />
+      <entry key="M30" value="3.2268275536560447" />
+      <entry key="H1" value="15.094680271245716" />
+      <entry key="H2" value="39.40383224796379" />
+      <entry key="H4" value="76.09590942126746" />
+      <entry key="D1" value="270.1170313903616" />
+      <entry key="W1" value="391.89643799669335" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
       <entry key="MS500" value="0.0" />
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
-      <entry key="S10" value="0.0" />
-      <entry key="S30" value="0.0" />
-      <entry key="S60" value="0.0" />
-      <entry key="M2" value="0.0" />
-      <entry key="M5" value="0.0" />
-      <entry key="M10" value="0.0" />
-      <entry key="M15" value="0.0" />
-      <entry key="M30" value="0.0" />
-      <entry key="H1" value="0.0" />
-      <entry key="H2" value="0.0" />
-      <entry key="H4" value="0.0" />
-      <entry key="D1" value="0.0" />
-      <entry key="W1" value="0.0" />
+      <entry key="S10" value="1.6335619419543583E-261" />
+      <entry key="S30" value="1.4500314421549863E-87" />
+      <entry key="S60" value="5.089993903890111E-44" />
+      <entry key="M2" value="3.14110580839152E-22" />
+      <entry key="M5" value="3.782809774043214E-9" />
+      <entry key="M10" value="8.776395478752555E-5" />
+      <entry key="M15" value="0.0025843870116302975" />
+      <entry key="M30" value="0.08530843021392008" />
+      <entry key="H1" value="0.5504405696658985" />
+      <entry key="H2" value="1.5488867840161047" />
+      <entry key="H4" value="3.0140743495071467" />
+      <entry key="D1" value="6.59679881832625" />
+      <entry key="W1" value="7.776382317902749" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9012504628265682" />
-      <entry key="MS500" value="0.9913749819058042" />
-      <entry key="S2" value="1.4541972816588773" />
-      <entry key="S5" value="2.0818487002295747" />
-      <entry key="S10" value="2.465175080842198" />
-      <entry key="S30" value="2.8791960268594536" />
-      <entry key="S60" value="3.862916038275364" />
-      <entry key="M2" value="7.921833248141945" />
-      <entry key="M5" value="19.160723290540293" />
-      <entry key="M10" value="29.302421152371295" />
-      <entry key="M15" value="38.062785185479775" />
-      <entry key="M30" value="68.790403012136" />
-      <entry key="H1" value="118.48564554862632" />
-      <entry key="H2" value="167.50022274683735" />
-      <entry key="H4" value="202.70091782774165" />
-      <entry key="D1" value="239.62678681368868" />
-      <entry key="W1" value="246.78183965198053" />
+      <entry key="MS100" value="0.0033075988764161217" />
+      <entry key="MS500" value="0.3190821922072382" />
+      <entry key="S2" value="0.7515807390327813" />
+      <entry key="S5" value="0.8920521755387831" />
+      <entry key="S10" value="0.9444851378072516" />
+      <entry key="S30" value="0.9811416439219097" />
+      <entry key="S60" value="0.9905259430837285" />
+      <entry key="M2" value="0.9952516983576207" />
+      <entry key="M5" value="0.998098213683797" />
+      <entry key="M10" value="1.0017154910000168" />
+      <entry key="M15" value="1.070761416136494" />
+      <entry key="M30" value="3.3113943428438946" />
+      <entry key="H1" value="15.643554494955062" />
+      <entry key="H2" value="40.950611149629715" />
+      <entry key="H4" value="79.10790489208398" />
+      <entry key="D1" value="276.7129262256551" />
+      <entry key="W1" value="399.6726551440464" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
@@ -174,7 +175,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1786388527065</updated>
-      <workItem from="1786388528093" duration="6812000" />
+      <workItem from="1786388528093" duration="25997000" />
     </task>
     <servers />
   </component>
@@ -182,6 +183,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bitquire$bitquire.coverage" NAME="bitquire Coverage Results" MODIFIED="1786395226592" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bitquire$bitquire.coverage" NAME="bitquire Coverage Results" MODIFIED="1786432668029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
