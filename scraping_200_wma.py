@@ -47,7 +47,7 @@ def calculate_200_wma():
 
 
 def supabase_connection():
-
+    """Establishing a supabase connection"""
     SUPABASE_URL = "https://mzhomnjkelxmwlhafisp.supabase.co"
     SUPABASE_KEY = "sb_publishable_fELh3_L2GsNTRbM-Pzdaxg_Xfk5bXXL"
 
@@ -61,7 +61,7 @@ def supabase_connection():
 
 
 def supabase_data_import():
-
+    """Importing data into supabase"""
     row = calculate_200_wma().iloc[0].to_dict()
     row["Date"] = row["Date"].isoformat()
 
@@ -76,6 +76,7 @@ def supabase_data_import():
 
 
 def return_supabase_wma():
+    """Returning the latest 200-week moving average BTC price from supabase"""
     response = (
         supabase_connection()
         .table("200_wma_btc")

@@ -92,6 +92,7 @@ if __name__ == "__main__":
     df = get_listings(1)
     df["fear_greed_index"] = fear_greed_index()
     df["200WMA"] = return_supabase_wma()["200WMA"].reset_index(drop=True)
-    print(df[["symbol", "price", "pct_change_1h",
+    print(df[["symbol",
               "pct_change_24h", "pct_change_7d",
-              "last_updated", "fear_greed_index", "200WMA"]])
+              "last_updated", "fear_greed_index",
+              "price", "200WMA"]])

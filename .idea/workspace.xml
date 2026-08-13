@@ -4,13 +4,20 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b047bfe7-79f3-453f-a0a7-0138b326773a" name="Changes" comment="" />
+    <list default="true" id="b047bfe7-79f3-453f-a0a7-0138b326773a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitquire.py" beforeDir="false" afterPath="$PROJECT_DIR$/bitquire.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/scraping test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scraping_200_wma.py" beforeDir="false" afterPath="$PROJECT_DIR$/scraping_200_wma.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
+    <option name="cachedIndexableFilesCount" value="13038" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="FileTemplateManagerImpl">
@@ -24,18 +31,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "P33Rview"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;P33Rview&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/P33Rview/bitquire.git",
-    "accountId": "d10fef3f-c20f-4c02-8a29-38b2fb09c4c3"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/P33Rview/bitquire.git&quot;,
+    &quot;accountId&quot;: &quot;d10fef3f-c20f-4c02-8a29-38b2fb09c4c3&quot;
   }
-}]]></component>
+}</component>
   <component name="McpProjectServerCommands">
     <commands />
     <urls />
@@ -43,66 +50,66 @@
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
       <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0" />
-      <entry key="S2" value="1.0" />
-      <entry key="S5" value="1.0" />
-      <entry key="S10" value="1.0" />
-      <entry key="S30" value="1.0" />
-      <entry key="S60" value="1.0" />
-      <entry key="M2" value="1.0" />
-      <entry key="M5" value="1.0000002433474164" />
-      <entry key="M10" value="1.002580860886322" />
-      <entry key="M15" value="1.0688386093346012" />
-      <entry key="M30" value="3.2268275536560447" />
-      <entry key="H1" value="15.094680271245716" />
-      <entry key="H2" value="39.40383224796379" />
-      <entry key="H4" value="76.09590942126746" />
-      <entry key="D1" value="270.1170313903616" />
-      <entry key="W1" value="391.89643799669335" />
+      <entry key="MS500" value="1.000353500530366" />
+      <entry key="S2" value="1.137132911506546" />
+      <entry key="S5" value="1.466001749836781" />
+      <entry key="S10" value="1.8446077602306312" />
+      <entry key="S30" value="4.33942429561405" />
+      <entry key="S60" value="9.41505735942106" />
+      <entry key="M2" value="16.76812658282425" />
+      <entry key="M5" value="28.67524401138212" />
+      <entry key="M10" value="38.530309263999904" />
+      <entry key="M15" value="44.57332547071676" />
+      <entry key="M30" value="58.69001084792191" />
+      <entry key="H1" value="81.52212921750102" />
+      <entry key="H2" value="115.9949874168683" />
+      <entry key="H4" value="163.92101371589067" />
+      <entry key="D1" value="381.57795239261867" />
+      <entry key="W1" value="520.546638303648" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="1.6335619419543583E-261" />
-      <entry key="S30" value="1.4500314421549863E-87" />
-      <entry key="S60" value="5.089993903890111E-44" />
-      <entry key="M2" value="3.14110580839152E-22" />
-      <entry key="M5" value="3.782809774043214E-9" />
-      <entry key="M10" value="8.776395478752555E-5" />
-      <entry key="M15" value="0.0025843870116302975" />
-      <entry key="M30" value="0.08530843021392008" />
-      <entry key="H1" value="0.5504405696658985" />
-      <entry key="H2" value="1.5488867840161047" />
-      <entry key="H4" value="3.0140743495071467" />
-      <entry key="D1" value="6.59679881832625" />
-      <entry key="W1" value="7.776382317902749" />
+      <entry key="MS100" value="4.1430240956911655E-213" />
+      <entry key="MS500" value="3.337824451765201E-43" />
+      <entry key="S2" value="2.403620353829642E-11" />
+      <entry key="S5" value="5.653921232598397E-5" />
+      <entry key="S10" value="0.007540282108590076" />
+      <entry key="S30" value="0.22487431943118102" />
+      <entry key="S60" value="0.6511792522409102" />
+      <entry key="M2" value="1.345672979229498" />
+      <entry key="M5" value="2.6321091781032124" />
+      <entry key="M10" value="3.8668900167446445" />
+      <entry key="M15" value="4.608806343817163" />
+      <entry key="M30" value="5.865756293474271" />
+      <entry key="H1" value="7.237178359072924" />
+      <entry key="H2" value="8.91439623765687" />
+      <entry key="H4" value="11.004688571155432" />
+      <entry key="D1" value="15.975890783176391" />
+      <entry key="W1" value="17.67384176943312" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.0033075988764161217" />
-      <entry key="MS500" value="0.3190821922072382" />
-      <entry key="S2" value="0.7515807390327813" />
-      <entry key="S5" value="0.8920521755387831" />
-      <entry key="S10" value="0.9444851378072516" />
-      <entry key="S30" value="0.9811416439219097" />
-      <entry key="S60" value="0.9905259430837285" />
-      <entry key="M2" value="0.9952516983576207" />
-      <entry key="M5" value="0.998098213683797" />
-      <entry key="M10" value="1.0017154910000168" />
-      <entry key="M15" value="1.070761416136494" />
-      <entry key="M30" value="3.3113943428438946" />
-      <entry key="H1" value="15.643554494955062" />
-      <entry key="H2" value="40.950611149629715" />
-      <entry key="H4" value="79.10790489208398" />
-      <entry key="D1" value="276.7129262256551" />
-      <entry key="W1" value="399.6726551440464" />
+      <entry key="MS100" value="0.39776824187745935" />
+      <entry key="MS500" value="0.8319144515742763" />
+      <entry key="S2" value="1.0857258806506136" />
+      <entry key="S5" value="1.4390209602668054" />
+      <entry key="S10" value="1.8335263557520747" />
+      <entry key="S30" value="4.534435472242531" />
+      <entry key="S60" value="10.023086059492105" />
+      <entry key="M2" value="18.066433255088533" />
+      <entry key="M5" value="31.268346567220252" />
+      <entry key="M10" value="42.368706111019954" />
+      <entry key="M15" value="49.159321796105765" />
+      <entry key="M30" value="64.53969738959425" />
+      <entry key="H1" value="88.7475610995949" />
+      <entry key="H2" value="124.90101159030556" />
+      <entry key="H4" value="174.9199665845909" />
+      <entry key="D1" value="397.5521595550831" />
+      <entry key="W1" value="538.2201934104617" />
     </decayedShown>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2,
-  "fromUser": false
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3HjjlzKchJcspyLxm2dJCOtyitv" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -116,6 +123,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "master",
@@ -175,7 +183,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1786388527065</updated>
-      <workItem from="1786388528093" duration="25997000" />
+      <workItem from="1786388528093" duration="28051000" />
+      <workItem from="1786536520941" duration="8463000" />
     </task>
     <servers />
   </component>
@@ -183,6 +192,6 @@
     <option name="version" value="3" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/bitquire$bitquire.coverage" NAME="bitquire Coverage Results" MODIFIED="1786432668029" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/bitquire$bitquire.coverage" NAME="bitquire Coverage Results" MODIFIED="1786542320594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
