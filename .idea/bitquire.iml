@@ -5,7 +5,7 @@
       <excludeFolder url="file://$MODULE_DIR$/../.venv" />
       <excludeFolder url="file://$MODULE_DIR$/../WelcomeScreen/.venv" />
     </content>
-    <orderEntry type="jdk" jdkName="~\PycharmProjects\bitquire\.venv" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="~\PycharmProjects\.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
