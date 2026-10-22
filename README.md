@@ -22,11 +22,14 @@ A lightweight automation tool for systematic Bitcoin Dollar-Cost Averaging (DCA)
 
 BTC Weekly DCA automates Bitcoin Dollar-Cost Averaging calculations, providing a consistent, hands-off approach to supporting a long-term investment strategy.
 
-The Python script runs automatically every Monday via GitHub Actions, with Supabase integration for database operations.
+The Python script runs automatically every Monday via GitHub Actions, with Supabase integration for database operations. Currently, the solution is semi-automatic. An email notification is sent with the exact amount to buy the BTC:
+
+<img width="525" height="609" alt="image" src="https://github.com/user-attachments/assets/f771f326-3cb2-4de6-bb39-4992e81f5faa" />
+
 
 
 **Stay consistent. Automate the routine. ₿**
 
 ## Proposed future improvements
 
-I am planning to add a UI, that would allow to track the current return. Additionally, this would all be displayed in a compact app.
+The first priority is to do the whole process fully automatic, but I need to figure a way to access the internet banking account programatically. Subsequently, I am planning on adding a UI, that would allow to track the current return. Finally, this would all be displayed in a compact mobile app accessible through Apple Store.
