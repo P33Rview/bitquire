@@ -2,7 +2,6 @@
 
   <img src="https://img.shields.io/badge/Python-3.14-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/Pandas-Data_Analysis-150458?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas">
-  <img src="https://img.shields.io/badge/Requests-HTTP-2C5BB4?style=for-the-badge" alt="Requests">
   <img src="https://img.shields.io/badge/Supabase-Database-3FCF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase">
   <img src="https://img.shields.io/badge/GitHub_Actions-Automation-2088FF?style=for-the-badge&logo=githubactions&logoColor=white" alt="GitHub Actions">
 
@@ -16,7 +15,8 @@ A lightweight automation tool for systematic Bitcoin Dollar-Cost Averaging (DCA)
 
 
 
-<img width="797" height="469" alt="image" src="https://github.com/user-attachments/assets/31af9073-f9da-4510-80fe-a567b4416994" />
+<img width="796" height="575" alt="image" src="https://github.com/user-attachments/assets/2893235f-9df0-4581-b036-45d721a62cdd" />
+
 
 ## ✨ Overview
 
