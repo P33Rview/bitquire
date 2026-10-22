@@ -1,9 +1,10 @@
 import os
 from dotenv import load_dotenv
-from scraping_200_wma import supabase_data_import, return_supabase_wma
+from scraping_200_wma import supabase_data_import, return_supabase_wma, get_200_wma
 
 import pandas as pd
 import numpy as np
+from datetime import datetime, timezone
 import matplotlib.pyplot as plt
 import seaborn as sns
 
@@ -68,6 +69,18 @@ def to_frame(coins, convert="USD"):
     return pd.DataFrame(rows)
 
 
+def get_czk_usd_exchange():
+    """Returns the CZK Exchange rate for CZK/USD pair."""
+
+    api_key = os.getenv("EXCHANGE_API_KEY")
+    EXCHANGE_URL = f"https://v6.exchangerate-api.com/v6/{api_key}/latest/USD"
+
+    response = requests.get(EXCHANGE_URL)
+    data = response.json()
+
+    return data["conversion_rates"]["CZK"]
+
+
 def get_listings(limit=100, convert="USD", api_key=None, session=None):
     """Latest market data for the top `limit` coins by market cap."""
     data = request(
@@ -88,11 +101,54 @@ def fear_greed_index(api_key=None, session=None):
     )
     return data["value"]
 
+
+def calculate_buy_amount(
+    btc_price=None,
+    wma_200=None,
+    fgi=None,
+    min_buy=750,
+    max_buy=1500,
+    min_ratio=1.0,
+    max_ratio=2.0,
+    fgi_weight=0.3):
+    """Calculates an amount of CZK to be spend on BTC weighted by fear and greed index."""
+
+    if btc_price is None:
+        btc_price = get_listings(1)["price"].iloc[0]
+    if wma_200 is None:
+        wma_200 = get_200_wma()
+    if fgi is None:
+        fgi = fear_greed_index()
+
+    # Position 0..1 from price vs 200WMA (0 = cheap, 1 = expensive)
+    ratio = btc_price / wma_200
+    wma_position = np.clip((ratio - min_ratio) / (max_ratio - min_ratio), 0, 1)
+
+    # Position 0..1 from sentiment (0 = extreme fear, 1 = extreme greed)
+    fgi_position = np.clip(float(fgi) / 100, 0, 1)
+
+    # Weighted blend of the two signals
+    position = (1 - fgi_weight) * wma_position + fgi_weight * fgi_position
+
+    buy_amount = round(max_buy - position * (max_buy - min_buy), 2)
+    usd_amount = round(buy_amount / get_czk_usd_exchange(), 2)
+    btc_amount = round(usd_amount / btc_price, 7)
+
+    return {"czk_amount": buy_amount,
+            "usd_amount": usd_amount,
+            "btc_amount": btc_amount}
+
+
 if __name__ == "__main__":
     df = get_listings(1)
     df["fear_greed_index"] = fear_greed_index()
     df["200WMA"] = return_supabase_wma()["200WMA"].reset_index(drop=True)
-    print(df[["symbol",
-              "pct_change_24h", "pct_change_7d",
-              "last_updated", "fear_greed_index",
-              "price", "200WMA"]])
+
+    # Adding calculated buy amount (CZK, USD and BTC)
+    result = calculate_buy_amount()
+    df = df.assign(**result)
+
+    with pd.option_context("display.max_columns", None, "display.width", None):
+        print(df[["symbol", "pct_change_7d", "last_updated",
+                  "price", "200WMA", "fear_greed_index",
+                  "czk_amount", "usd_amount", "btc_amount"]])

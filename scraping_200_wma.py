@@ -1,14 +1,13 @@
 import requests
 import pandas as pd
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from supabase import create_client, Client
-
 
 def get_btc_weekly_data():
     """Extracting the 200-week data of Bitcoin from Yahoo Finance"""
     url = f"https://query1.finance.yahoo.com/v8/finance/chart/BTC-USD"
     params = {
-        "period1": 0,
+        "period1": int((datetime.now(timezone.utc) - timedelta(weeks=200)).timestamp()),
         "period2": int(datetime.now(timezone.utc).timestamp()),
         "interval": "1wk",
         "events": "history",
@@ -31,7 +30,7 @@ def get_btc_weekly_data():
     return df
 
 
-def calculate_200_wma():
+def get_200_wma():
     """Calculate the 200-week moving average BTC price"""
     df_btc = get_btc_weekly_data()
 
@@ -41,7 +40,7 @@ def calculate_200_wma():
         min_periods=200
     ).mean()
 
-    result = (df_btc.dropna(subset=["200WMA"])[["Date", "200WMA"]]).tail(1)
+    result = (df_btc.dropna(subset=["200WMA"])["200WMA"]).iloc[-1]
 
     return result
 
