@@ -4,15 +4,19 @@ from scraping_200_wma import supabase_connection, get_200_wma
 
 import pandas as pd
 import numpy as np
-from datetime import datetime, timezone
-#import matplotlib.pyplot as plt
-#import seaborn as sns
-
+import resend
 import requests
+
+from datetime import datetime, timezone, timedelta
+from zoneinfo import ZoneInfo
+from html import escape
 
 load_dotenv()
 BASE_URL = "https://pro-api.coinmarketcap.com"
 
+# Setting the min and max buy amounts
+min_buy = 750
+max_buy = 1500
 
 def get_session(api_key=None):
     """Build a requests session with the CoinMarketCap auth headers."""
@@ -106,8 +110,8 @@ def calculate_buy_amount(
     btc_price=None,
     wma_200=None,
     fgi=None,
-    min_buy=750,
-    max_buy=1500,
+    min_buy=min_buy,
+    max_buy=max_buy,
     min_ratio=1.0,
     max_ratio=2.0,
     fgi_weight=0.3):
@@ -178,6 +182,134 @@ def supabase_data_import(df):
 
     return response
 
+
+def send_weekly_dca_email(df):
+    """Send an HTML email with the weekly BTC DCA recommendation."""
+
+    if df.empty:
+        raise ValueError("No BTC data available to email.")
+
+    row = df.iloc[0]
+
+    price = float(row["price"])
+    wma = float(row["200WMA"])
+    fear_greed = float(row["fear_greed_index"])
+    czk_amount = float(row["czk_amount"])
+    usd_amount = float(row["usd_amount"])
+    btc_amount = float(row["btc_amount"])
+
+    ratio = price / wma
+
+    report_date = datetime.now(
+        ZoneInfo("Europe/Prague")
+    ).strftime("%d %B %Y")
+
+    def metric(label, value):
+        return f"""
+        <tr>
+          <td style="padding:12px 0;color:#64748b;">
+            {escape(label)}
+          </td>
+          <td style="padding:12px 0;text-align:right;
+                     font-weight:600;color:#0f172a;">
+            {escape(value)}
+          </td>
+        </tr>
+        """
+
+    html = f"""
+    <!DOCTYPE html>
+    <html>
+    <body style="margin:0;padding:32px 12px;
+                 background:#f1f5f9;
+                 font-family:Arial,sans-serif;">
+
+      <table role="presentation" cellpadding="0" cellspacing="0"
+             style="width:100%;max-width:520px;margin:auto;
+                    background:white;border-radius:16px;">
+
+        <tr>
+          <td style="padding:32px;">
+
+            <h1 style="font-size:24px;color:#0f172a;
+                       margin:0 0 8px;">
+              &#8383; Weekly DCA
+            </h1>
+
+            <p style="color:#64748b;margin:0 0 24px;">
+              {report_date} · Weekly investment summary
+            </p>
+
+            <table role="presentation"
+                   style="width:100%;border-collapse:collapse;">
+              {metric("BTC Price", f"${price:,.2f}")}
+              {metric("200-Week Moving Average", f"${wma:,.2f}")}
+              {metric("BTC / 200 WMA Ratio", f"{ratio:.2f}x")}
+              {metric("Fear & Greed Index", f"{fear_greed:.0f} / 100")}
+            </table>
+
+            <div style="background:#ecfdf5;border-radius:12px;
+                        padding:24px;margin-top:24px;">
+
+              <p style="color:#475569;margin:0 0 8px;">
+                Recommended BTC Purchase
+              </p>
+
+              <h2 style="color:#059669;font-size:32px;
+                           margin:0 0 3px;line-height:1.2;">
+                  {czk_amount:,.2f} Kč
+              </h2>
+                
+              <p style="color:#64748b;font-size:13px;
+                          margin:0 0 24px;line-height:1.4;">
+                  Purchase range: {min_buy:,.2f} – {max_buy:,.2f} Kč
+              </p>
+              
+              <table role="presentation"
+                     style="width:100%;border-collapse:collapse;">
+                <tr>
+                  <td style="padding:6px 0;">Amount in USD</td>
+                  <td style="text-align:right;font-weight:bold;">
+                    ${usd_amount:,.2f}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding:6px 0;">BTC to buy</td>
+                  <td style="text-align:right;font-weight:bold;">
+                    {btc_amount:.8f} BTC
+                  </td>
+                </tr>
+              </table>
+
+            </div>
+
+            <p style="font-size:12px;color:#94a3b8;
+                      margin-top:24px;">
+              Automatically generated using your
+              BTC 200 WMA DCA strategy. <br> 
+              Not financial advice.
+            </p>
+
+          </td>
+        </tr>
+      </table>
+
+    </body>
+    </html>
+    """
+
+    resend.api_key = os.environ["RESEND_API_KEY"]
+
+    response = resend.Emails.send({
+        "from": os.environ["EMAIL_FROM"],
+        "to": os.environ["EMAIL_TO"],
+        "subject": f"bitquire | {report_date}",
+        "html": html
+    })
+
+    return response
+
+
 if __name__ == "__main__":
     df = get_listings(1)
     df["fear_greed_index"] = fear_greed_index()
@@ -207,4 +339,7 @@ if __name__ == "__main__":
     # Upload the same data to Supabase
     response = supabase_data_import(df)
 
-    print("Data successfully uploaded to Supabase!")
+    # Send email notification
+    email_sending = send_weekly_dca_email(df)
+
+    print("Data successfully uploaded to Supabase and sent to email!")

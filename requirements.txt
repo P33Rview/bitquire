@@ -32,3 +32,4 @@ supabase==2.31.0
 supabase-auth==2.31.0
 supabase-functions==2.31.0
 websockets==15.0.1
+resend==2.50.0
