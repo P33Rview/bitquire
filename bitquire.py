@@ -1,12 +1,12 @@
 import os
 from dotenv import load_dotenv
-from scraping_200_wma import supabase_data_import, return_supabase_wma, get_200_wma
+from scraping_200_wma import supabase_connection, get_200_wma
 
 import pandas as pd
 import numpy as np
 from datetime import datetime, timezone
-import matplotlib.pyplot as plt
-import seaborn as sns
+#import matplotlib.pyplot as plt
+#import seaborn as sns
 
 import requests
 
@@ -130,7 +130,7 @@ def calculate_buy_amount(
     # Weighted blend of the two signals
     position = (1 - fgi_weight) * wma_position + fgi_weight * fgi_position
 
-    buy_amount = round(max_buy - position * (max_buy - min_buy), 2)
+    buy_amount = int(round(max_buy - position * (max_buy - min_buy), 0))
     usd_amount = round(buy_amount / get_czk_usd_exchange(), 2)
     btc_amount = round(usd_amount / btc_price, 7)
 
@@ -139,16 +139,72 @@ def calculate_buy_amount(
             "btc_amount": btc_amount}
 
 
+def supabase_data_import(df):
+    """Import calculated BTC buy amounts into Supabase."""
+
+    columns = [
+        "symbol",
+        "pct_change_7d",
+        "last_updated",
+        "price",
+        "200WMA",
+        "fear_greed_index",
+        "czk_amount",
+        "usd_amount",
+        "btc_amount"
+    ]
+
+    # Select the columns to upload
+    data = df[columns].copy()
+
+    # Convert datetime values to ISO format
+    data["last_updated"] = pd.to_datetime(
+        data["last_updated"]
+    ).dt.strftime("%Y-%m-%dT%H:%M:%S%z")
+
+    # Replace NaN values with None (JSON null)
+    data = data.astype(object).where(pd.notna(data), None)
+
+    # Convert DataFrame into list of dictionaries
+    rows = data.to_dict(orient="records")
+
+    # Insert data into Supabase
+    response = (
+        supabase_connection()
+        .table("calculated_amount_to_buy")
+        .insert(rows)
+        .execute()
+    )
+
+    return response
+
 if __name__ == "__main__":
     df = get_listings(1)
     df["fear_greed_index"] = fear_greed_index()
-    df["200WMA"] = return_supabase_wma()["200WMA"].reset_index(drop=True)
+    df["200WMA"] = get_200_wma()
 
     # Adding calculated buy amount (CZK, USD and BTC)
     result = calculate_buy_amount()
     df = df.assign(**result)
 
-    with pd.option_context("display.max_columns", None, "display.width", None):
-        print(df[["symbol", "pct_change_7d", "last_updated",
-                  "price", "200WMA", "fear_greed_index",
-                  "czk_amount", "usd_amount", "btc_amount"]])
+    # Print calculated values
+    with pd.option_context(
+            "display.max_columns", None,
+            "display.width", None
+    ):
+        print(df[[
+            "symbol",
+            "pct_change_7d",
+            "last_updated",
+            "price",
+            "200WMA",
+            "fear_greed_index",
+            "czk_amount",
+            "usd_amount",
+            "btc_amount"
+        ]])
+
+    # Upload the same data to Supabase
+    response = supabase_data_import(df)
+
+    print("Data successfully uploaded to Supabase!")

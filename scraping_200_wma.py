@@ -1,7 +1,11 @@
 import requests
 import pandas as pd
+import os
 from datetime import datetime, timezone, timedelta
 from supabase import create_client, Client
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def get_btc_weekly_data():
     """Extracting the 200-week data of Bitcoin from Yahoo Finance"""
@@ -47,8 +51,8 @@ def get_200_wma():
 
 def supabase_connection():
     """Establishing a supabase connection"""
-    SUPABASE_URL = "https://mzhomnjkelxmwlhafisp.supabase.co"
-    SUPABASE_KEY = "sb_publishable_fELh3_L2GsNTRbM-Pzdaxg_Xfk5bXXL"
+    SUPABASE_URL = os.getenv("SUPABASE_URL")
+    SUPABASE_KEY = os.getenv("SUPABASE_KEY")
 
     # Establishing a supabase connection
     supabase: Client = create_client(
@@ -57,32 +61,3 @@ def supabase_connection():
     )
 
     return supabase
-
-
-def supabase_data_import():
-    """Importing data into supabase"""
-    row = calculate_200_wma().iloc[0].to_dict()
-    row["Date"] = row["Date"].isoformat()
-
-    response = (
-        supabase_connection()
-        .table("200_wma_btc")
-        .insert(row)
-        .execute()
-    )
-
-    return response
-
-
-def return_supabase_wma():
-    """Returning the latest 200-week moving average BTC price from supabase"""
-    response = (
-        supabase_connection()
-        .table("200_wma_btc")
-        .select("*")
-        .execute()
-        )
-
-    df = pd.DataFrame(response.data).sort_values(by="Date", ascending=False).head(1)
-
-    return df
