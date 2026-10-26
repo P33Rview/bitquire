@@ -1,9 +1,9 @@
 name: BTC Weekly DCA
 
 on:
-  schedule:
-    - cron: '0 11 * * 1'
-      timezone: 'Europe/Prague'
+#  schedule:
+#    - cron: '0 11 * * 1'
+#      timezone: 'Europe/Prague'
   workflow_dispatch:
 
 permissions:
