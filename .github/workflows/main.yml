@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  check:
+  run:
     runs-on: ubuntu-latest
     steps:
       - run: date -u
