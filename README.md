@@ -11,7 +11,7 @@
 ₿ Bitcoin · ⚡ Automated · 📅 Weekly
 
 A lightweight automation tool for systematic Bitcoin Dollar-Cost Averaging (DCA), powered by GitHub Actions and Supabase.
-> Allows the user to set a lower and upper thresholds of weekly contributions, which is calculated by linear extrapolation based on the **BTC 200 weekly moving average** and Fear and Greed index weighting.
+> Allows the user to set a lower and upper thresholds of weekly contributions, which is calculated by linear interpolation based on the **BTC 200 weekly moving average** and Fear and Greed index weighting.
 
 
 
