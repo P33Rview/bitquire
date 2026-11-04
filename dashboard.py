@@ -4,6 +4,9 @@ from dotenv import load_dotenv
 from bitquire import get_listings, get_czk_usd_exchange
 from scraping_200_wma import supabase_connection
 
+from datetime import datetime
+from zoneinfo import ZoneInfo
+
 load_dotenv()
 
 st.set_page_config(
@@ -56,11 +59,23 @@ def get_portfolio_snapshot():
 
     return df
 
-st.title("BTC Portfolio Tracker")
-
-@st.fragment(run_every="180s") # Reduced from 60 secs to 180 secs to preserve API limit rates
+@st.fragment(run_every="180s") # Increased from 60 secs to 180 secs to preserve API limit rates
 def show_portfolio():
     df = get_purchases()
+
+    # Header
+    col1, col2 = st.columns([3, 1], vertical_alignment="center")
+
+    with col1:
+        st.title("BTC Portfolio Tracker")
+
+    with col2:
+        timestamp = datetime.now(ZoneInfo("Europe/Prague"))
+        st.markdown(
+            f"<div style='text-align: right; color: gray; font-size: 12px;'>"
+            f"↻ Last refreshed: {timestamp:%H:%M:%S}"
+            f"</div>",
+            unsafe_allow_html=True)
 
     if df.empty:
         st.info("No purchases recorded yet.")
@@ -78,8 +93,31 @@ def show_portfolio():
     profit = current_value - invested
     return_pct = profit / invested * 100
 
+    # Profit/loss widget
+    color = "#16A34A" if profit >= 0 else "#DC2626"
+    formatted_profit = f"{profit:+,.0f}".replace(",", " ")
+
+    st.markdown(
+        f"""
+        <div style="padding: 0; margin-bottom: 30px;">
+            <div style="font-size: 14px; color: gray; margin-bottom: 0; line-height: 1;">
+                Unrealized P/L
+            </div>
+            <div style="display: flex; align-items: baseline; gap: 14px;">
+                <span style="font-size: 75px; font-weight: 700; line-height: 1.1;">
+                    {formatted_profit} Kč
+                </span>
+                <span style="font-size: 25px; font-weight: 600; color: {color};">
+                    {return_pct:+.2f}%
+                </span>
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
+
     # Metrics with
-    c1, c2, c3, c4, c5 = st.columns(5)
+    c1, c2, c3, c4 = st.columns(4)
     height_val = 135
 
     with c1:
@@ -96,7 +134,8 @@ def show_portfolio():
                             </style>
                         """)
 
-            st.caption(f"**{avg_btc_buy:,.8f} BTC (Average weekly BTC)**")
+            st.caption(f"**{avg_btc_buy:,.8f} BTC** (Average weekly BTC)")
+
 
     with c2:
         with st.container(border=True, height=height_val):
@@ -135,14 +174,14 @@ def show_portfolio():
                 </style>
             """)
 
-            st.caption(f"{f'**{avg_czk_buy:,.0f}'.replace(",", " ")} Kč (Average weekly buy)**")
+            st.caption(f"{f'**{avg_czk_buy:,.0f}'.replace(",", " ")} Kč** (Average weekly buy)")
 
-    with c5:
-        with st.container(border=True, height=height_val):
-            st.metric(
-                "Unrealized P/L",
-                f"{profit:+,.0f} Kč",
-                f"{return_pct:+.2f}%")
+    # with c5:
+    #     with st.container(border=True, height=height_val):
+    #         st.metric(
+    #             "Unrealized P/L",
+    #             f"{profit:+,.0f} Kč",
+    #             f"{return_pct:+.2f}%")
 
     #Line chart with purchase history
     df_line = get_portfolio_snapshot()
