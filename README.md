@@ -30,6 +30,10 @@ The Python script runs automatically every Monday via GitHub Actions, with Supab
 
 **Stay consistent. Automate the routine. ₿**
 
-## Proposed future improvements
+## Proposed future improvements and versions
 
-The first priority is to do the whole process fully automatic, but I need to figure a way to access the internet banking account programatically. Subsequently, I am planning on adding a UI, that would allow to track the current return. Finally, this would all be displayed in a compact mobile app accessible through Apple Store.
+`1.0.0` The first version of the solution.
+> Foremost priority is to do the whole process fully automatic, but I need to figure a way to access the internet banking account programatically. Subsequently, I am planning on adding a UI, that would allow to track the current return. Finally, this would all be displayed in a compact mobile app accessible through Apple Store.
+
+`1.1.0` Added a tracking UI dashboard to display the portfolio performance.
+> Still need to figure out how to automate the whole solution.
