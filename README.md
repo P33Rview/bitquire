@@ -37,3 +37,6 @@ The Python script runs automatically every Monday via GitHub Actions, with Supab
 
 `1.1.0` Added a tracking UI dashboard to display the portfolio performance.
 > Still need to figure out how to automate the whole solution.
+
+`1.1.1` Updated the Purchase detail table to contain the min/max buy limits.
+> Still need to figure out how to automate the whole solution.
