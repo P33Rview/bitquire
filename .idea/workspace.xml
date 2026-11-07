@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b047bfe7-79f3-453f-a0a7-0138b326773a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bitquire.py" beforeDir="false" afterPath="$PROJECT_DIR$/bitquire.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.py" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,23 +46,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0" />
-      <entry key="MS500" value="1.0000060694616986" />
-      <entry key="S2" value="1.0496349448637168" />
-      <entry key="S5" value="1.3008279081284226" />
-      <entry key="S10" value="1.5499995826724606" />
-      <entry key="S30" value="1.9709227204053046" />
-      <entry key="S60" value="2.4542738226143186" />
-      <entry key="M2" value="3.2794426046776803" />
-      <entry key="M5" value="6.055725771047235" />
-      <entry key="M10" value="10.265715544619361" />
-      <entry key="M15" value="13.114555142728046" />
-      <entry key="M30" value="17.664900482528793" />
-      <entry key="H1" value="27.56373007439045" />
-      <entry key="H2" value="61.28722321544491" />
-      <entry key="H4" value="124.3785019542258" />
-      <entry key="D1" value="830.4884347465546" />
-      <entry key="W1" value="1857.2125448057384" />
+      <entry key="MS100" value="1.7269862586601552" />
+      <entry key="MS500" value="1.9382215141635837" />
+      <entry key="S2" value="2.0079634521523637" />
+      <entry key="S5" value="2.235498164805713" />
+      <entry key="S10" value="2.6458273062694095" />
+      <entry key="S30" value="4.141765321794107" />
+      <entry key="S60" value="5.483684504586115" />
+      <entry key="M2" value="6.881135776349616" />
+      <entry key="M5" value="8.676271667848994" />
+      <entry key="M10" value="9.973920152748017" />
+      <entry key="M15" value="12.102119484354686" />
+      <entry key="M30" value="28.325066468482582" />
+      <entry key="H1" value="68.00752109690606" />
+      <entry key="H2" value="130.0605816828454" />
+      <entry key="H4" value="216.24477826132255" />
+      <entry key="D1" value="943.9697509496154" />
+      <entry key="W1" value="2003.2661218785981" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -69,37 +70,37 @@
       <entry key="S2" value="0.0" />
       <entry key="S5" value="0.0" />
       <entry key="S10" value="0.0" />
-      <entry key="S30" value="6.6329862726032444E-167" />
-      <entry key="S60" value="8.146244259400675E-84" />
-      <entry key="M2" value="2.9298089608414733E-42" />
-      <entry key="M5" value="3.504867293245809E-17" />
-      <entry key="M10" value="1.0808259984783058E-8" />
-      <entry key="M15" value="7.896174641019377E-6" />
-      <entry key="M30" value="0.006306106627862587" />
-      <entry key="H1" value="0.18896415253565804" />
-      <entry key="H2" value="1.0575043530299175" />
-      <entry key="H4" value="2.6456562386753144" />
-      <entry key="D1" value="20.137805600019412" />
-      <entry key="W1" value="53.667404630828976" />
+      <entry key="S30" value="3.4563252723807857E-228" />
+      <entry key="S60" value="1.8595599418389825E-114" />
+      <entry key="M2" value="1.3997990036619632E-57" />
+      <entry key="M5" value="2.6083275557649233E-23" />
+      <entry key="M10" value="9.323974094019733E-12" />
+      <entry key="M15" value="7.155614389678718E-8" />
+      <entry key="M30" value="6.0031113857523E-4" />
+      <entry key="H1" value="0.05830247212879655" />
+      <entry key="H2" value="0.5874026976605956" />
+      <entry key="H4" value="1.9717883679143458" />
+      <entry key="D1" value="19.174908129088887" />
+      <entry key="W1" value="53.29307223871484" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.8585654364377537" />
-      <entry key="MS500" value="0.9699678466605258" />
-      <entry key="S2" value="1.0417648466765235" />
-      <entry key="S5" value="1.2971160434778841" />
-      <entry key="S10" value="1.5478158243908036" />
-      <entry key="S30" value="1.968737581993832" />
-      <entry key="S60" value="2.4517879797736435" />
-      <entry key="M2" value="3.2773874535122243" />
-      <entry key="M5" value="6.053935053635639" />
-      <entry key="M10" value="10.26369624065255" />
-      <entry key="M15" value="13.112630776356532" />
-      <entry key="M30" value="17.669739536221098" />
-      <entry key="H1" value="27.75132088606134" />
-      <entry key="H2" value="62.342839054459084" />
-      <entry key="H4" value="127.02214287795428" />
-      <entry key="D1" value="850.6244462553356" />
-      <entry key="W1" value="1910.8793001465194" />
+      <entry key="MS100" value="1.105431250599627" />
+      <entry key="MS500" value="1.7211167485027064" />
+      <entry key="S2" value="1.946796212850465" />
+      <entry key="S5" value="2.2068058564385056" />
+      <entry key="S10" value="2.6179462174322707" />
+      <entry key="S30" value="4.101982439386832" />
+      <entry key="S60" value="5.448860867978172" />
+      <entry key="M2" value="6.857373902335036" />
+      <entry key="M5" value="8.664658030562741" />
+      <entry key="M10" value="9.96767076584886" />
+      <entry key="M15" value="12.097764726580007" />
+      <entry key="M30" value="28.32303212846853" />
+      <entry key="H1" value="68.06385577471755" />
+      <entry key="H2" value="130.6460109198677" />
+      <entry key="H4" value="218.2145469738438" />
+      <entry key="D1" value="963.1428547630982" />
+      <entry key="W1" value="2056.5585353706165" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -111,29 +112,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Python.bitquire.executor": "Run",
-    "RunOnceActivity.MCP Project settings loaded": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "git-widget-placeholder": "master",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/Jakub Špiroch/PycharmProjects/bitquire/mobile_app",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
-    "to.speed.mode.migration.done": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Python.bitquire.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Jakub Špiroch/PycharmProjects/bitquire/mobile_app&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Jakub Špiroch\PycharmProjects\bitquire\mobile_app" />

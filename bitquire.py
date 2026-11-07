@@ -15,8 +15,8 @@ load_dotenv()
 BASE_URL = "https://pro-api.coinmarketcap.com"
 
 # Setting the min and max buy amounts
-min_buy = 750
-max_buy = 1500
+min_buy = 500
+max_buy = 1000
 
 def get_session(api_key=None):
     """Build a requests session with the CoinMarketCap auth headers."""
@@ -155,7 +155,9 @@ def supabase_data_import(df):
         "fear_greed_index",
         "czk_amount",
         "usd_amount",
-        "btc_amount"
+        "btc_amount",
+        "lower_buy_limit",
+        "upper_buy_limit"
     ]
 
     # Select the columns to upload
@@ -314,27 +316,31 @@ if __name__ == "__main__":
     df = get_listings(1)
     df["fear_greed_index"] = fear_greed_index()
     df["200WMA"] = get_200_wma()
+    df["lower_buy_limit"] = min_buy
+    df["upper_buy_limit"] = max_buy
 
     # Adding calculated buy amount (CZK, USD and BTC)
     result = calculate_buy_amount()
     df = df.assign(**result)
 
-    # Print calculated values
-    with pd.option_context(
-            "display.max_columns", None,
-            "display.width", None
-    ):
-        print(df[[
-            "symbol",
-            "pct_change_7d",
-            "last_updated",
-            "price",
-            "200WMA",
-            "fear_greed_index",
-            "czk_amount",
-            "usd_amount",
-            "btc_amount"
-        ]])
+    # # Print calculated values
+    # with pd.option_context(
+    #          "display.max_columns", None,
+    #          "display.width", None
+    #     ):
+    #      print(df[[
+    #          "symbol",
+    #          "pct_change_7d",
+    #          "last_updated",
+    #          "price",
+    #          "200WMA",
+    #          "fear_greed_index",
+    #          "czk_amount",
+    #          "usd_amount",
+    #          "btc_amount",
+    #          "lower_buy_limit",
+    #          "upper_buy_limit"
+    #      ]])
 
     # Upload the same data to Supabase
     response = supabase_data_import(df)

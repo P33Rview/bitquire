@@ -81,16 +81,20 @@ def show_portfolio():
         st.info("No purchases recorded yet.")
         return
 
-    btc_price = get_listings(1)["price"].iloc[0] * get_czk_usd_exchange()
-    avg_btc_price = df["price"].mean() * get_czk_usd_exchange()
+    btc_price = get_listings(1)["price"].iloc[0]
+    btc_price_CZK = btc_price * get_czk_usd_exchange()
+    avg_btc_price_USD = df["price"].mean()
+    avg_btc_price_CZK = avg_btc_price_USD * get_czk_usd_exchange()
+
     avg_czk_buy = df["czk_amount"].mean()
     avg_btc_buy = df["btc_amount"].mean()
 
     total_btc = pd.to_numeric(df["btc_amount"]).sum()
     invested = pd.to_numeric(df["czk_amount"]).sum()
 
-    current_value = total_btc * btc_price
-    profit = current_value - invested
+    current_value_CZK = total_btc * btc_price_CZK # CZK price
+    # current_value_USD = total_btc * btc_price # USD price
+    profit = current_value_CZK - invested
     return_pct = profit / invested * 100
 
     # Profit/loss widget
@@ -136,12 +140,11 @@ def show_portfolio():
 
             st.caption(f"**{avg_btc_buy:,.8f} BTC** (Average weekly BTC)")
 
-
     with c2:
         with st.container(border=True, height=height_val):
             st.metric(
                 "Average BTC buy price",
-                f"{avg_btc_price:,.0f} Kč".replace(",", " "))
+                f"${avg_btc_price_USD:,.0f}".replace(",", " "))
 
             st.html("""
                             <style>
@@ -151,16 +154,9 @@ def show_portfolio():
                             </style>
                         """)
 
-            st.caption(f"**{btc_price:,.0f} Kč** (Current BTC price)".replace(",", " "))
+            st.caption(f"**${btc_price:,.0f}** (Current BTC price)".replace(",", " "))
 
     with c3:
-        with st.container(border=True, height=height_val):
-            st.metric(
-                "Portfolio Value",
-                f"{current_value:,.0f} Kč".replace(",", " "),
-                f"{current_value - invested:,.0f} Kč")
-
-    with c4:
         with st.container(border=True, height=height_val):
             st.metric(
                 "Total Invested",
@@ -176,12 +172,12 @@ def show_portfolio():
 
             st.caption(f"{f'**{avg_czk_buy:,.0f}'.replace(",", " ")} Kč** (Average weekly buy)")
 
-    # with c5:
-    #     with st.container(border=True, height=height_val):
-    #         st.metric(
-    #             "Unrealized P/L",
-    #             f"{profit:+,.0f} Kč",
-    #             f"{return_pct:+.2f}%")
+    with c4:
+        with st.container(border=True, height=height_val):
+            st.metric(
+                "Portfolio Value",
+                f"{current_value_CZK:,.0f} Kč".replace(",", " "),
+                f"{current_value_CZK - invested:,.0f} Kč")
 
     #Line chart with purchase history
     df_line = get_portfolio_snapshot()
@@ -198,6 +194,6 @@ def show_portfolio():
     # Container with tabular purchase history
     with st.expander("Click for detailed purchase history"):
         st.subheader("Purchase History")
-        st.dataframe(df[["last_updated", "price", "czk_amount", "btc_amount"]], use_container_width=True)
+        st.dataframe(df[["last_updated", "price", "czk_amount", "btc_amount", "lower_buy_limit", "upper_buy_limit"]], use_container_width=True)
 
 show_portfolio()
