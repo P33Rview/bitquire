@@ -26,7 +26,7 @@ def get_purchases():
     )
     return pd.DataFrame(response.data)
 
-@st.cache_resource
+@st.cache_data(ttl="180s")
 def get_portfolio_snapshot():
     response = (
         supabase_connection()
