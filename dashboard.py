@@ -63,6 +63,9 @@ def get_portfolio_snapshot():
 def show_portfolio():
     df = get_purchases()
 
+    df["last_updated"] = pd.to_datetime(
+        df["last_updated"], utc=True).dt.tz_convert("Europe/Prague")
+
     # Header
     col1, col2 = st.columns([3, 1], vertical_alignment="center")
 
@@ -194,6 +197,44 @@ def show_portfolio():
     # Container with tabular purchase history
     with st.expander("Click for detailed purchase history"):
         st.subheader("Purchase History")
-        st.dataframe(df[["last_updated", "price", "czk_amount", "btc_amount", "lower_buy_limit", "upper_buy_limit"]], use_container_width=True)
+
+        st.dataframe(
+            df[[
+                "last_updated",
+                "price",
+                "czk_amount",
+                "btc_amount",
+                "lower_buy_limit",
+                "upper_buy_limit"
+            ]],
+            column_config={
+                "last_updated": st.column_config.DatetimeColumn(
+                    "Purchase Date",
+                    format="DD.MM.YYYY HH:mm"
+                ),
+                "price": st.column_config.NumberColumn(
+                    "BTC Price",
+                    format="$%.0f"
+                ),
+                "btc_amount": st.column_config.NumberColumn(
+                    "BTC Amount",
+                    format="%.8f BTC"
+                ),
+                "czk_amount": st.column_config.NumberColumn(
+                    "Bought Amount",
+                    format="%.0f Kč"
+                ),
+                "lower_buy_limit": st.column_config.NumberColumn(
+                    "Lower Buy Limit",
+                    format="%.0f Kč"
+                ),
+                "upper_buy_limit": st.column_config.NumberColumn(
+                    "Upper Buy Limit",
+                    format="%.0f Kč"
+                ),
+            },
+            width="stretch",
+            hide_index=True
+        )
 
 show_portfolio()
